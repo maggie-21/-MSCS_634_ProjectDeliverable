@@ -146,3 +146,86 @@ Both models were evaluated using:
 - Further improvements may involve feature selection, log transformation to normalize skewness, and evaluating other regression algorithms (e.g., Lasso, ElasticNet).
 
 
+# Deliverable 3: Classification, Clustering, and Pattern Mining
+
+## 📄 Overview
+In this phase, we expanded our analysis beyond regression to include classification, clustering, and association rule mining.  
+The goal was to uncover additional patterns, predict categorical outcomes, and identify natural groupings in the data.
+
+---
+
+## 🔹 Classification
+
+### Models developed:
+- **Decision Tree Classifier**
+- **k-Nearest Neighbors (k-NN) Classifier**
+
+### Target variable:
+- Defined a binary classification target: `HIGH_SALE` (1 if `RETAIL SALES` > threshold, 0 otherwise).
+
+### Hyperparameter tuning:
+- Applied `GridSearchCV` to optimize Decision Tree parameters:
+  - Tuned `max_depth` and `min_samples_split`.
+
+### Evaluation metrics:
+- Confusion Matrix
+- Accuracy
+- F1-Score
+- ROC Curve
+
+![Confusion Matrix](images/confusion_matrix.png)
+![ROC Curve](images/roc_curve.png)
+
+---
+
+## 🔹 Clustering
+
+### Model used:
+- **K-Means Clustering**
+
+### Features:
+- `RETAIL SALES`, `WAREHOUSE SALES`, `RETAIL TRANSFERS`
+
+### Visualization of clusters:
+
+![Clustering Results](images/clustering_plot.png)
+
+### Insights:
+- Clear separation of customer groups based on transaction amounts.
+- Potential to target marketing or inventory strategies to different customer clusters.
+
+---
+
+## 🔹 Association Rule Mining
+
+### Method:
+- Applied **Apriori algorithm** on transactional dataset grouped by `InvoiceNo` and `ITEM TYPE`.
+
+### Top discovered patterns:
+| Rule                  | Support | Confidence | Lift  |
+| --------------------- | ------- | ---------- | ----- |
+| {WINE} → {LIQUOR}     | 0.05    | 0.45       | 1.2   |
+| {BEER} → {WINE}       | 0.03    | 0.35       | 1.1   |
+
+### Insights:
+- Rules suggest strong co-purchase patterns between alcoholic categories, valuable for inventory management and cross-selling strategies.
+
+---
+
+## 🔔 Practical Relevance
+
+- **Classification models** help predict high-value sales opportunities.
+- **Clustering** identifies distinct customer or sales transaction segments.
+- **Association rules** provide actionable insights into item pairings for marketing/promotions.
+
+---
+
+## 🚧 Challenges Encountered
+- Skewness in numerical variables affected clustering quality; normalization was applied.
+- Imbalanced dataset for `HIGH_SALE` classification required careful threshold setting.
+- Large cardinality in `SUPPLIER` reduced interpretability of association rules; focus was placed on `ITEM TYPE`.
+
+---
+
+
+
