@@ -76,6 +76,73 @@ Key findings from the EDA include:
 - `README.md`: This documentation file describing dataset summary, cleaning steps, EDA insights, and challenges.
 
 ---
+# Deliverable 2: Regression Modeling and Performance Evaluation
 
+## 📄 Dataset Summary
+This project continues from Deliverable 1 using the **Warehouse and Retail Sales dataset** (305,803 cleaned records).  
+The goal is to predict `RETAIL SALES` using features such as `YEAR`, `MONTH`, `SUPPLIER`, `ITEM TYPE`, `RETAIL TRANSFERS`, and `WAREHOUSE SALES`.
+
+---
+
+## ⚙️ Modeling Process
+
+### Feature Engineering
+- **Categorical encoding**: `SUPPLIER` and `ITEM TYPE` were encoded using OneHotEncoder to convert categories into numerical features.
+- **Numerical features**: Retained as-is (`YEAR`, `MONTH`, `RETAIL TRANSFERS`, `WAREHOUSE SALES`).
+- Target variable: `RETAIL SALES`.
+
+### Train/Test Split
+- 80% training set, 20% test set.
+
+---
+
+## 🤖 Regression Models
+
+Two models were built and evaluated:
+- **Linear Regression**
+- **Ridge Regression** (regularization to handle multicollinearity and reduce overfitting)
+
+---
+
+## 📈 Model Evaluation
+
+Both models were evaluated using:
+- **Test R²**
+- **Test MSE**
+- **Test RMSE**
+- **5-fold Cross-Validation R²**
+
+### Evaluation Results:
+
+| Model              | Test R²  | Test MSE | Test RMSE | CV R²  |
+| ------------------ | -------- | -------- | --------- | ------ |
+| Linear Regression  | 0.8809   | 127.04   | 11.27     | 0.9388 |
+| Ridge Regression   | 0.8389   | 171.88   | 13.11     | 0.9278 |
+
+![Comparison of Model Performance](screenshots/model_performance_table.png)
+
+---
+
+### Insights and Observations
+- **Linear Regression outperformed Ridge Regression** on both the test set and cross-validation:
+  - Higher R² (0.8809 vs 0.8389)
+  - Lower RMSE (11.27 vs 13.11)
+
+- **Ridge Regression slightly reduced variance but did not improve overall predictive power** on this dataset.
+
+- The high R² values suggest that the current set of features explains a significant portion of variance in `RETAIL SALES`.
+
+---
+
+## 🔔 Challenges Encountered
+- The dataset exhibited **strong skewness and a large number of small transactions**:
+  - No transformation (e.g., log) was applied here, but this could further improve performance.
+  
+- Categorical encoding resulted in a **large feature space due to many suppliers**:
+  - Ridge regularization was tested to mitigate potential overfitting.
+
+---
 ✅ **Next Steps:**  
-The cleaned and explored dataset is now ready for the next stages: regression modeling, classification, clustering, and association rule mining in Deliverables 2–4.
+- Further improvements may involve feature selection, log transformation to normalize skewness, and evaluating other regression algorithms (e.g., Lasso, ElasticNet).
+
+
