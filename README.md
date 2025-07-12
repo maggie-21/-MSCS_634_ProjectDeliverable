@@ -173,8 +173,8 @@ The goal was to uncover additional patterns, predict categorical outcomes, and i
 - F1-Score
 - ROC Curve
 
-![Confusion Matrix](images/confusion_matrix.png)
-![ROC Curve](images/roc_curve.png)
+![Confusion Matrix](screenshots/confusion_matrix.png)
+![ROC Curve](screenshots/roc_curve.png)
 
 ---
 
@@ -188,7 +188,7 @@ The goal was to uncover additional patterns, predict categorical outcomes, and i
 
 ### Visualization of clusters:
 
-![Clustering Results](images/clustering_plot.png)
+![Clustering Results](screenshots/clustering_plot.png)
 
 ### Insights:
 - Clear separation of customer groups based on transaction amounts.
