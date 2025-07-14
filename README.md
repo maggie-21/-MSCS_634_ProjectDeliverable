@@ -225,6 +225,11 @@ The goal was to uncover additional patterns, predict categorical outcomes, and i
 - Imbalanced dataset for `HIGH_SALE` classification required careful threshold setting.
 - Large cardinality in `SUPPLIER` reduced interpretability of association rules; focus was placed on `ITEM TYPE`.
 
+# video link presentation:
+```
+ https://www.loom.com/share/6267ad7bdf2b46eea879ebd963841248
+ ```
+
 ---
 
 
